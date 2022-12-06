@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "lua-local",
+        "request": "launch",
+        "name": "Debug",
+        "program": {
+          "command": "C:\\Users\\Prince\\Downloads\\love-11.4-win64\\love"
+        },
+        "args": [
+          ".",
+          "debug"
+        ],
+      },
+      {
+        "type": "lua-local",
+        "request": "launch",
+        "name": "Release",
+        "program": {
+          "command": "C:\\Users\\Prince\\Downloads\\love-11.4-win64\\love"
+        },
+        "args": [
+          ".",
+        ],
+      },
+    ]
+  }
