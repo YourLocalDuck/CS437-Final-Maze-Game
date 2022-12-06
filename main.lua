@@ -38,8 +38,8 @@ function love.update(dt)
     camera:move(dx/2, dy/2)
 
     Signal.register('win', function()
-        Player21.x = 20050
-        Player21.y = 20050
+        Player21.x = 20225
+        Player21.y = 20275
         Player21.speed = 2
     end
     )
