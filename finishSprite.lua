@@ -11,6 +11,11 @@ function Finish:new()
     self.ddy = 0
     self.imageScale = 1
     map.world:add("finish", self.x, self.y, self.width*self.imageScale, self.height*self.imageScale)
+
+    Signal.register('win', function()
+        map.world:remove("finish")
+    end
+    )
 end
 
 function Finish:draw()

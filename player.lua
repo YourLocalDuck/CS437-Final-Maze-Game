@@ -1,6 +1,8 @@
 Player = Sprite:extend()
 Signal = require 'signal'
 
+local onlyOnceSignal = 0
+
 function Player:new()
     self.x = 1000
     self.y = 1000
@@ -94,12 +96,10 @@ function Player:basicSpritePhysics()
     local actualX, actualY, cols, len = map.world:move(self, self.x, self.y)
     self.x = actualX
     self.y = actualY
-    for i = 1, len do
-        --print("collided with " .. tostring(cols[i].other))
+        for i = 1, len do
         if tostring(cols[i].other) == "finish" then
-            --print("FINISH")
             Signal.emit('win')
-        end
+       end
     end
 end
 
@@ -155,4 +155,10 @@ function Player:draw()
         end
         
     end
+end
+
+function Player:tp(num1, num2)
+    self.x = num1
+    self.y = num2
+    map.world:update(self, num1, num2)
 end

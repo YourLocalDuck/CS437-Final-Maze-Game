@@ -24,3 +24,7 @@ I have packaged the file in a different way for other platforms. If you run `maz
 If it still doesn't work, you can run love in the game directory itself, and it will most likely run. Just run `love [dir]` with dir being the directory name.
 
 To play: Once you load in, your player character will be in the middle of the screen and you will be surrounded by tiles. The tiles make up a maze that you must solve to get to the opening at the end and complete the game. Use the arrow keys to move and try to get out of the maze. There are some collision bugs, but every space on the maze is accessible, as I have tried it myself. So, if you are not able to get through an opening, try moving around a bit and you will.
+
+
+
+Note: bump.lua, camera.lua, classic.lua, and signal.lua are libararies that I found on github, and are not created by me.
