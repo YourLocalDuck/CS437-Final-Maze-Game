@@ -1,7 +1,4 @@
-if arg[2] == "debug" then
-    require("lldebugger").start()
-end
-
+if arg[2] == "debug" then require("lldebugger").start() end
 
 local bump = require "bump"
 Map = Object:extend()
@@ -17,7 +14,7 @@ function Map:new()
     self.tilemap = {
         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
         {1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1},
-        {1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1},
+        {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1},
         {1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1},
         {1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1},
         {1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1},
@@ -36,10 +33,10 @@ function Map:new()
         {1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1},
         {1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
     }
-    for i,row in ipairs(self.tilemap) do
-        for j,tile in ipairs(row) do
+    for i, row in ipairs(self.tilemap) do
+        for j, tile in ipairs(row) do
             if tile == 1 then
-                self.world:add('tile'..tileCtr, j*200, i*200, 200, 200)
+                self.world:add('tile' .. tileCtr, j * 200, i * 200, 200, 200)
                 tileCtr = tileCtr + 1
             end
         end
@@ -55,32 +52,29 @@ function Map:new()
             {1, 0, 0, 0, 0, 1},
             {1, 1, 1, 1, 1, 1}
         }
-        for i,row in ipairs(self.tilemap) do
-            for j,tile in ipairs(row) do
+        for i, row in ipairs(self.tilemap) do
+            for j, tile in ipairs(row) do
                 if tile == 1 then
-                    self.world:add('tile'..tileCtr, j*200, i*200, 200, 200)
+                    self.world:add('tile' .. tileCtr, j * 200, i * 200, 200, 200)
                     tileCtr = tileCtr + 1
                 end
             end
         end
-    end
-    )
+    end)
 end
 
 function Map:draw()
-    for i,row in ipairs(self.tilemap) do
-        for j,tile in ipairs(row) do
+    for i, row in ipairs(self.tilemap) do
+        for j, tile in ipairs(row) do
             if tile == 1 then
-                tile = love.graphics.draw(img, j*width, i*height)
+                tile = love.graphics.draw(img, j * width, i * height)
             end
         end
     end
 end
 
 function Map:reset()
-    for i = 0 ,tileCtr-1 do
-        self.world:remove('tile'..i)
-    end
+    for i = 0, tileCtr - 1 do self.world:remove('tile' .. i) end
     tileCtr = 0
 end
 

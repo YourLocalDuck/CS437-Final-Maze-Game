@@ -10,16 +10,14 @@ function Finish:new()
     self.ddx = 0
     self.ddy = 0
     self.imageScale = 1
-    map.world:add("finish", self.x, self.y, self.width*self.imageScale, self.height*self.imageScale)
+    map.world:add("finish", self.x, self.y, self.width * self.imageScale,
+                  self.height * self.imageScale)
 
-    Signal.register('win', function()
-        map.world:remove("finish")
-    end
-    )
+    Signal.register('win', function() map.world:remove("finish") end)
 end
 
 function Finish:draw()
-    love.graphics.setColor(47,49,79)
+    love.graphics.setColor(47 / 255, 49 / 255, 79 / 255)
     love.graphics.rectangle("fill", self.x, self.y, 200, 200)
-    love.graphics.setColor(255,255,255)
+    love.graphics.setColor(255, 255, 255)
 end
